@@ -84,8 +84,8 @@ npm run dev
 
 ## 🔗 Live Demo
 
-> [Deploy link here]
+> [https://aws-pulse-rrvn.vercel.app]
 
 ---
 
-Built with ❤️ for [Hackathon Name] 2026
+Built with ❤️ for [Hackindia ] 2026
