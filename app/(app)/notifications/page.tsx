@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import {
   initNotifications,
   markRead,
@@ -47,7 +46,6 @@ function NotificationCard({ notif, onMarkRead, onDismiss }: {
   onDismiss: (id: string) => void;
 }) {
   const config = TYPE_CONFIG[notif.type];
-  const router = useRouter();
 
   return (
     <div
@@ -143,7 +141,6 @@ export default function NotificationsPage() {
   const [filter, setFilter] = useState<"all" | NotifType>("all");
   const [loading, setLoading] = useState(true);
   const { showToast } = useToast();
-  const router = useRouter();
 
   useEffect(() => {
     const user = getUser();

@@ -392,8 +392,11 @@ function Platform() {
     const r = 2.2;
     for (let i = 0; i < 6; i++) {
       const a = (Math.PI / 3) * i;
-      i === 0 ? shape.moveTo(r * Math.cos(a), r * Math.sin(a))
-              : shape.lineTo(r * Math.cos(a), r * Math.sin(a));
+      if (i === 0) {
+        shape.moveTo(r * Math.cos(a), r * Math.sin(a));
+      } else {
+        shape.lineTo(r * Math.cos(a), r * Math.sin(a));
+      }
     }
     shape.closePath();
     return shape;

@@ -180,8 +180,11 @@ function useHexTex(label: string, color: string, bg: string) {
     ctx.beginPath();
     for (let i = 0; i < 6; i++) {
       const a = (Math.PI/3)*i - Math.PI/6;
-      i===0 ? ctx.moveTo(cx+r*Math.cos(a), cy+r*Math.sin(a))
-             : ctx.lineTo(cx+r*Math.cos(a), cy+r*Math.sin(a));
+      if (i === 0) {
+        ctx.moveTo(cx+r*Math.cos(a), cy+r*Math.sin(a));
+      } else {
+        ctx.lineTo(cx+r*Math.cos(a), cy+r*Math.sin(a));
+      }
     }
     ctx.closePath();
     const grad = ctx.createRadialGradient(cx,cy,0,cx,cy,r);
@@ -270,7 +273,11 @@ function Platform() {
     const r = 2.3;
     for (let i=0;i<6;i++) {
       const a=(Math.PI/3)*i;
-      i===0?sh.moveTo(r*Math.cos(a),r*Math.sin(a)):sh.lineTo(r*Math.cos(a),r*Math.sin(a));
+      if (i === 0) {
+        sh.moveTo(r*Math.cos(a),r*Math.sin(a));
+      } else {
+        sh.lineTo(r*Math.cos(a),r*Math.sin(a));
+      }
     }
     sh.closePath(); return sh;
   }, []);

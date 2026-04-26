@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { UPDATES } from "@/lib/data";
-import { PriorityBadge, Tag } from "@/components/ui/Badge";
+import { PriorityBadge } from "@/components/ui/Badge";
 import { useToast } from "@/components/ui/Toast";
 
 const RELATED = [

@@ -13,8 +13,9 @@ export function PriorityBadge({ priority, size = "sm" }: BadgeProps) {
     normal: { label: "NORMAL", bg: "bg-gray-500/20", text: "text-gray-400", border: "border-gray-500/40", dot: "bg-gray-500" },
   };
   const c = config[priority];
+  const sizeClass = size === "md" ? "text-sm px-3 py-1.5" : "text-xs px-2.5 py-1";
   return (
-    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wide border ${c.bg} ${c.text} ${c.border}`}>
+    <span className={`inline-flex items-center gap-1.5 rounded-full font-semibold uppercase tracking-wide border ${sizeClass} ${c.bg} ${c.text} ${c.border}`}>
       <span className={`w-1.5 h-1.5 rounded-full ${c.dot} ${priority === "critical" ? "pulse-dot" : ""}`} />
       {c.label}
     </span>
