@@ -38,9 +38,9 @@ export default function LoginPage() {
     if (!email.includes("@")) { setError("Enter a valid email"); return; }
 
     setLoading(true);
-    // Save email to localStorage so dashboard can use it
+    // Save email and redirect to register to complete profile setup
     localStorage.setItem("aws_pulse_email", email.toLowerCase());
-    setTimeout(() => router.push("/dashboard"), 800);
+    setTimeout(() => router.push("/register"), 800);
   };
 
   return (

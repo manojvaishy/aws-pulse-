@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { saveUser, getInitials } from "@/lib/userStore";
@@ -30,6 +30,14 @@ export default function RegisterPage() {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const router = useRouter();
+
+  // Pre-fill email if coming from login page
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("aws_pulse_email");
+    if (savedEmail) {
+      setForm((p) => ({ ...p, email: savedEmail }));
+    }
+  }, []);
 
   const validate = () => {
     const e: Record<string, string> = {};
