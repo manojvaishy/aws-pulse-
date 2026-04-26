@@ -16,7 +16,7 @@ When a user asks to explain an AWS update (especially when update context is pro
 - Point 2
 
 ## ✅ What You Should Do
-[Step-by-step action items]
+[Step-by-step action items] 
 1. Step 1
 2. Step 2
 3. Step 3
@@ -86,6 +86,7 @@ export async function POST(req: NextRequest) {
         lastError = err instanceof Error ? err : new Error(String(err));
         if (!lastError.message.includes("429") && !lastError.message.includes("quota")) break;
         console.warn(`Model ${modelName} quota exceeded, trying next...`);
+        await new Promise((r) => setTimeout(r, 1000)); // 1 sec wait before next model
       }
     }
 
